@@ -60,30 +60,13 @@ def test_find_suitable_user():
     ]
 
 
-def find_user_name(users):
-    d = {}
-    for i in users[:]:
-        for y in i.values():
-            if y == 'Olga':
-                d = i
-    return d
-
     # TODO найдите пользователя с именем "Olga"
-    suiable_user = find_user_name(users)
+    suiable_user = [i for i in users[:] for y in i.values() if y == 'Olga'][0]
     assert suiable_user == {"name": "Olga", "age": 45}
 
 
-def find_user_age(users):
-    d = []
-    for i in users[:]:
-        for key, value in i.items():
-            if key == 'age' and int(value) < 20:
-                d.append(i)
-    return d
-
-
     # TODO найдите всех пользователей младше 20 лет
-    suiable_users = find_user_age(users)
+    suiable_users = [i for i in users[:] for key, value in i.items() if key == 'age' and int(value) < 20]
     assert suiable_users == [
         {"name": "Stanislav", "age": 15},
         {"name": "Maria", "age": 18},
