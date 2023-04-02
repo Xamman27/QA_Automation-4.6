@@ -91,6 +91,7 @@ def test_readable_function():
 
 
 def open_browser(browser_name):
+    print('\n')
     actual_result = get_name_funct(open_browser, browser_name)
     assert actual_result == "Open Browser [Chrome]"
 
@@ -118,4 +119,5 @@ def get_name_funct(name_f, *arg_func):
         else:
             name.append(i)
     name = ''.join(name) + ' ' + '[' + ', '.join(arg_func) + "]"
+    print(name)
     return name
